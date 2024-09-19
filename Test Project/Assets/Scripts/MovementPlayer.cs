@@ -2,32 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems; 
+
 
 public class MovementPlayer : MonoBehaviour
 {
-    //my cool variable
-    bool ConradMilliken = true;
-
-    
-    
-
-
+    public GameObject Tank;
+    public Button LeftButton;
     void Start()
     {
-        //my awesome typo
-        if ( ConradMilliken == true)
-        {
-            Debug.Log("do literally nothing lol");
-        }
+
     }
 
     
-    void Update()
+    public void ButtonPressed()
     {
-        //my intellisense demonstration, just for you
-        if (ConradMilliken == true)
-        {
-            Debug.Log("unleash the 6 billion terabyte zip bomb;");
-        }
+        Tank.transform.Rotate(0, 1, 0);
     }
 }
