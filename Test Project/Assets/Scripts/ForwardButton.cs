@@ -26,7 +26,7 @@ public class ForwardButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
         droneMotorSound.pitch = droneSpeed;
         if (isHeldDown)
         {
-            Tank.transform.Translate(0,0,0.03f);
+            Tank.transform.Translate(0,0,0.04f);
             if (droneSpeed < 0.8f)
             {
                 droneSpeed = droneSpeed + 0.1f;

@@ -49,7 +49,7 @@ public class CameraFlash : MonoBehaviour, IPointerDownHandler
     {
         thudWin.Play();
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
     public bool onWinPlane()
@@ -78,7 +78,7 @@ public class CameraFlash : MonoBehaviour, IPointerDownHandler
         }
         if (blankSpeed > 0)
         {
-            blankSpeed = blankSpeed - 0.08f;
+            blankSpeed = blankSpeed - 0.05f;
         }
         if (blankSpeed < 0)
         {
