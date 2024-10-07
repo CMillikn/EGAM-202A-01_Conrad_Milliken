@@ -7,6 +7,8 @@ TagManager:
   - red
   - blue
   - yellow
+  - treasure
+  - void
   layers:
   - Default
   - TransparentFX
