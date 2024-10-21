@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 2134870963748564373}
   - component: {fileID: -4573043812057486257}
   - component: {fileID: -3490851905119983201}
+  - component: {fileID: 4643875784436573229}
   m_Layer: 7
   m_Name: GlooSphere
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,6 +133,7 @@ MonoBehaviour:
   GlooSplash: {fileID: 1638650821863066913, guid: 4f2b76c4852722a4e82b2587249db12d,
     type: 3}
   GlooSplat: {fileID: -3490851905119983201}
+  glooDecaying: 0
 --- !u!82 &-3490851905119983201
 AudioSource:
   m_ObjectHideFlags: 0
@@ -228,3 +230,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4643875784436573229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4377799211919505606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aafa7a1641f43247918ed8c2650d65e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,23 +12,41 @@ public class PlayerMovement : MonoBehaviour
     public float jumpHeight = 3f;
     
     public Transform groundCheck;
-    public float groundDistance = 0.4f;
+    public float groundDistance = 4f;
     public LayerMask groundMask;
 
     Vector3 velocity;
 
-    bool isGrounded;
+    public bool isGrounded;
 
     void Update()
     {
-        if ((Physics.Raycast(groundCheck.position, Vector3.down, out RaycastHit hit, groundDistance)) && hit.transform.tag == "Ground")
+        if ((Physics.Raycast(groundCheck.position, Vector3.down, out RaycastHit hit, groundDistance)) && (hit.transform.tag == "Ground") && (hit.transform.GetComponent<GlooTag>() == null))
         {
             isGrounded = true;
         }
-
-        if(!isGrounded  && velocity.y < 0)
+        else if (Physics.SphereCast(groundCheck.position, 0.3f, Vector3.down, out RaycastHit gloo, groundDistance + 1))
         {
-            velocity.y = -5f;
+            if ((gloo.transform.GetComponent<GlooTag>() != null))
+            {
+                if (gloo.rigidbody.isKinematic == true)
+                {
+                    isGrounded = true;
+                }
+            }
+        }
+        else
+        {
+            isGrounded = false;
+        }
+
+        if(!isGrounded  && velocity.y < -1 && velocity.y > -19.62f)
+        {
+            velocity.y = velocity.y - Time.deltaTime;
+        }
+        else if (velocity.y < -19.62f)
+        {
+            velocity.y = -19.62f;
         }
 
         float x = Input.GetAxis("Horizontal");
