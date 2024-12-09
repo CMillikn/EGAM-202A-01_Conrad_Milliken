@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CameraFlash : MonoBehaviour, IPointerDownHandler
 {
@@ -11,10 +12,12 @@ public class CameraFlash : MonoBehaviour, IPointerDownHandler
     public float cameraIntense;
     public float cameraSpeed;
     public float blankSpeed;
+    public float barAmount;
     public AudioSource cameraSound;
     public AudioSource thudWin;
     public GameObject blankScreen;
     public GameObject drone;
+    public Image bar;
 
 
     public void OnPointerDown(PointerEventData eventData)
@@ -83,6 +86,16 @@ public class CameraFlash : MonoBehaviour, IPointerDownHandler
         if (blankSpeed < 0)
         {
             blankSpeed = 0;
+        }
+        bar.fillAmount = 1 - ((cameraIntense - cameraSpeed) / 10);
+        barAmount = 1 - ((cameraIntense - cameraSpeed) / 10);
+        if (bar.fillAmount < 1)
+        {
+            bar.color = new Color(barAmount, 0, 0);
+        }
+        else
+        {
+            bar.color = Color.red;
         }
     }
 }
